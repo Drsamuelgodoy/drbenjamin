@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
-import { Phone, MapPin, Instagram, Facebook, Linkedin, Menu, X, Star, CheckCircle } from "lucide-react";
+import { Phone, MapPin, Instagram, Youtube, Menu, X, Star, CheckCircle } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
@@ -34,16 +34,21 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/20">
-      <div className="max-w-7xl mx-auto px-6 h-12 md:h-14 flex items-center justify-between">
-        <Logo className="h-6 md:h-8 origin-left opacity-90" />
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-xl border-b border-white/[0.03] shadow-sm">
+      <div className="max-w-7xl mx-auto px-8 h-16 md:h-[72px] flex items-center justify-between">
+        <Logo className="h-8 md:h-10 origin-left opacity-90 transition-opacity hover:opacity-100" />
         
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8 text-[11px] uppercase tracking-[0.15em] font-semibold">
-          {navLinks.map((link) => (
-            <a key={link.href} href={link.href} className="hover:text-accent transition-colors opacity-80 hover:opacity-100">{link.label}</a>
-          ))}
-          <Button variant="outline" className="border-primary/20 text-primary hover:bg-primary hover:text-primary-foreground rounded-full px-6 py-1 h-9 tracking-widest text-[10px] transition-all duration-300">
+        <div className="hidden md:flex items-center gap-12 text-[10px] uppercase tracking-[0.2em] font-medium">
+          <div className="flex items-center gap-10 text-foreground/60">
+            {navLinks.map((link) => (
+              <a key={link.href} href={link.href} className="hover:text-accent transition-all hover:translate-y-[-1px]">{link.label}</a>
+            ))}
+          </div>
+          <Button 
+            className="bg-accent text-primary hover:bg-accent/90 rounded-full px-7 h-10 tracking-[0.15em] text-[9px] font-bold transition-all duration-500 hover:scale-[1.02] shadow-lg shadow-accent/10"
+            onClick={() => window.open('https://wa.me/5512996544010', '_blank')}
+          >
             Agende sua Consulta
           </Button>
         </div>
@@ -82,9 +87,12 @@ const Navbar = () => {
                 </Button>
               </div>
               <div className="p-10 border-t border-border/40 flex justify-center gap-8">
-                <Instagram className="w-5 h-5 text-muted-foreground" />
-                <Facebook className="w-5 h-5 text-muted-foreground" />
-                <Linkedin className="w-5 h-5 text-muted-foreground" />
+                <a href="https://www.instagram.com/dr.benjaminamaral/" target="_blank" rel="noopener noreferrer">
+                  <Instagram className="w-5 h-5 text-muted-foreground hover:text-accent transition-colors" />
+                </a>
+                <a href="https://www.youtube.com/@dr.benjaminamaral8838" target="_blank" rel="noopener noreferrer">
+                  <Youtube className="w-5 h-5 text-muted-foreground hover:text-accent transition-colors" />
+                </a>
               </div>
             </SheetContent>
           </Sheet>
@@ -145,7 +153,10 @@ const Hero = () => (
         transition={{ duration: 1, delay: 0.6 }}
         className="flex flex-col sm:flex-row items-center gap-8"
       >
-        <Button className="bg-accent text-primary hover:bg-accent/90 rounded-full px-12 py-6 text-[11px] uppercase tracking-[0.3em] h-auto font-bold shadow-xl shadow-accent/10 transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]">
+        <Button 
+          className="bg-accent text-primary hover:bg-accent/90 rounded-full px-12 py-6 text-[11px] uppercase tracking-[0.3em] h-auto font-bold shadow-xl shadow-accent/10 transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
+          onClick={() => window.open('https://wa.me/5512996544010', '_blank')}
+        >
           Agende sua Consulta
         </Button>
         <a 
@@ -310,120 +321,110 @@ const Services = () => {
 const Testimonials = () => {
   const testimonials = [
     {
-      quote: "Excelente profissional! Fiz meus implantes com o Dr. Benjamin e a experiência foi impecável. Muito atencioso, técnico e o resultado ficou extremamente natural. Recomendo a todos.",
       author: "Mariana Santos",
-      date: "há 1 mês",
-      rating: 5,
+      quote: "Excelente profissional! Fiz meus implantes com o Dr. Benjamin e a experiência foi impecável. Muito atencioso, técnico e o resultado ficou extremamente natural. Recomendo a todos.",
+      date: "há 1 mês"
     },
     {
-      quote: "Atendimento nota 10. A clínica é moderna e o Dr. Benjamin passa muita segurança em todo o processo do tratamento. Resultado nota mil!",
       author: "Carlos Eduardo",
-      date: "há 3 meses",
-      rating: 5,
+      quote: "Atendimento nota 10. A clínica é moderna e o Dr. Benjamin passa muita segurança em todo o processo do tratamento. Resultado nota mil!",
+      date: "há 3 meses"
     },
     {
-      quote: "Melhor dentista de Taubaté. Equipe super educada e o Dr. Benjamin é muito detalhista. O consultório no Square Offices é lindo e muito bem localizado.",
       author: "Ana Paula L.",
-      date: "há 6 meses",
-      rating: 5,
+      quote: "Melhor dentista de Taubaté. Equipe super educada e o Dr. Benjamin é muito detalhista. O consultório no Square Offices é lindo e muito bem localizado.",
+      date: "há 6 meses"
     }
   ];
 
   return (
-    <section id="depoimentos" className="py-24 md:py-40 px-6 bg-primary text-primary-foreground overflow-hidden relative">
-      {/* Decorative background text removed */}
+    <section id="depoimentos" className="relative py-24 md:py-40 px-6 bg-primary text-primary-foreground overflow-hidden">
+      {/* Noise Texture Overlay */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay z-20" style={{ backgroundImage: 'url("https://grainy-gradients.vercel.app/noise.svg")' }} />
+      
+      {/* Background Glow */}
+      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,rgba(197,160,89,0.03)_0%,transparent_70%)] -z-10 pointer-events-none blur-3xl" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="max-w-3xl mb-16 md:mb-24">
-          <motion.span 
+        <div className="max-w-3xl mb-24 md:mb-32">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-col gap-6"
+          >
+            <span className="text-accent uppercase tracking-[0.5em] text-[9px] md:text-[10px] font-bold opacity-80">
+              Testemunhos Reais
+            </span>
+            <h2 className="text-3xl md:text-5xl font-light leading-[1.1] tracking-tight">
+              A experiência de quem <br className="hidden md:block" /> <span className="italic font-serif text-accent contrast-125">escolheu a precisão.</span>
+            </h2>
+          </motion.div>
+
+          <motion.div 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-accent uppercase tracking-[0.4em] text-[10px] md:text-xs font-bold mb-6 block"
+            transition={{ delay: 0.3 }}
+            className="mt-12 flex flex-col sm:flex-row items-center gap-8 bg-white/5 p-6 rounded-[32px] border border-white/5 w-fit backdrop-blur-xl"
           >
-            Prova Social
-          </motion.span>
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-light leading-tight mb-8"
-          >
-            Vidas transformadas por um <br /> <span className="italic font-serif text-accent">novo sorriso.</span>
-          </motion.h2>
-
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 bg-background/5 p-5 sm:p-6 rounded-3xl border border-white/10 w-full sm:w-fit backdrop-blur-sm">
-            <div className="flex items-center gap-3">
-              <span className="text-3xl font-bold">4.9</span>
+            <div className="flex items-center gap-4">
+              <span className="text-4xl font-light tracking-tighter">4.9</span>
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-accent text-accent" />
+                  <Star key={i} className="w-3.5 h-3.5 fill-accent text-accent contrast-125" />
                 ))}
               </div>
             </div>
             
             <div className="hidden sm:block h-8 w-[1px] bg-white/10" />
             
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               <img 
                 src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" 
                 alt="Google" 
-                className="h-4 w-auto brightness-0 invert"
+                className="h-4 w-auto brightness-0 invert opacity-60"
                 referrerPolicy="no-referrer"
               />
-              <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] opacity-60">Avaliações</span>
+              <span className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] font-bold text-primary-foreground/40">Reviews Verified</span>
             </div>
-          </div>
+          </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 gap-12 md:gap-24">
+        <div className="grid grid-cols-1 gap-24 md:gap-40">
           {testimonials.map((t, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              className="flex flex-col md:flex-row gap-8 md:gap-16 items-start md:items-center"
+              transition={{ duration: 1, delay: index * 0.1 }}
+              className="flex flex-col items-center text-center space-y-12"
             >
-              <div className="relative shrink-0">
-                <Avatar className="w-24 h-24 md:w-32 md:h-32 rounded-full border-2 border-accent/20 bg-accent/10">
-                  <AvatarFallback className="bg-transparent">
-                    <span className="text-xl md:text-3xl font-bold tracking-tighter text-accent">
-                      {t.author.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2)}
-                    </span>
-                  </AvatarFallback>
-                </Avatar>
-                <div className="absolute -bottom-1 -right-1 bg-accent p-2 rounded-full shadow-lg">
-                  <CheckCircle className="w-4 h-4 text-primary" />
-                </div>
-              </div>
-
-              <div className="flex-1">
-                <div className="flex gap-1 mb-6">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3 h-3 md:w-4 md:h-4 fill-accent text-accent" />
-                  ))}
-                </div>
-                
-                <blockquote className="text-xl md:text-3xl font-serif italic mb-8 leading-relaxed text-primary-foreground/90">
+              <div className="space-y-10 max-w-4xl">
+                <blockquote className="text-2xl md:text-5xl font-serif italic leading-[1.3] text-primary-foreground tracking-tight">
                   "{t.quote}"
                 </blockquote>
                 
-                <div className="flex flex-wrap items-center gap-4 md:gap-6">
-                  <div>
-                    <span className="block text-sm md:text-base font-bold uppercase tracking-widest">{t.author}</span>
-                    <span className="text-[10px] md:text-xs uppercase tracking-widest opacity-70">{t.date}</span>
+                <div className="flex flex-col items-center gap-6">
+                  <div className="flex items-center gap-4">
+                    <div className="h-[1px] w-8 bg-accent/30" />
+                    <span className="text-sm md:text-base font-bold uppercase tracking-[0.4em] text-accent">{t.author}</span>
+                    <div className="h-[1px] w-8 bg-accent/30" />
                   </div>
-                  <div className="h-8 w-[1px] bg-accent/30 hidden sm:block" />
-                  <div className="flex items-center gap-2">
-                    <img 
-                      src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" 
-                      alt="G" 
-                      className="w-12 h-auto brightness-0 invert opacity-60"
-                      referrerPolicy="no-referrer"
-                    />
-                    <span className="text-[9px] md:text-[10px] uppercase tracking-widest opacity-60">Via Google Reviews</span>
+                  
+                  <div className="flex items-center gap-4 text-primary-foreground/30">
+                    <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium">{t.date}</span>
+                    <div className="w-1.5 h-1.5 rounded-full bg-accent/20" />
+                    <div className="flex items-center gap-2 py-1.5 px-3 bg-white/5 rounded-full border border-white/5 text-[9px] uppercase tracking-widest font-bold">
+                      <img 
+                        src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" 
+                        alt="G" 
+                        className="h-2.5 w-auto brightness-0 invert opacity-40"
+                        referrerPolicy="no-referrer"
+                      />
+                      Verified Review
+                    </div>
                   </div>
                 </div>
               </div>
@@ -435,20 +436,84 @@ const Testimonials = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="mt-20 flex justify-center px-4"
+          className="mt-32 md:mt-48 flex justify-center px-4"
         >
           <Button 
-            variant="outline" 
-            className="border-accent/30 text-accent hover:bg-accent hover:text-primary rounded-none w-full sm:w-auto px-4 sm:px-12 py-6 text-[10px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.3em] h-auto whitespace-normal leading-relaxed text-center"
+            className="bg-accent text-primary hover:bg-accent/90 rounded-full px-12 py-7 text-[10px] md:text-xs uppercase tracking-[0.4em] h-auto font-bold shadow-2xl shadow-accent/10 transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
             onClick={() => window.open('https://share.google/HiiONyrJ2gxcNlyf4', '_blank')}
           >
-            Ver todas as avaliações no Google
+            Ver todas as experiências
           </Button>
         </motion.div>
       </div>
     </section>
   );
 };
+
+const VideoHighlight = () => (
+  <section className="pt-24 md:py-32 px-6 bg-primary overflow-hidden relative">
+    <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay z-20" style={{ backgroundImage: 'url("https://grainy-gradients.vercel.app/noise.svg")' }} />
+    <div className="max-w-7xl mx-auto relative z-10 flex flex-col items-center">
+      <div className="text-center mb-16 max-w-2xl">
+        <h2 className="text-accent uppercase tracking-[0.5em] text-[9px] md:text-[10px] font-bold mb-6 opacity-80">Cinematografia</h2>
+        <h3 className="text-3xl md:text-5xl font-light tracking-tight text-primary-foreground leading-[1.1]">Inovação em <span className="italic font-serif text-accent">cada movimento.</span></h3>
+      </div>
+      
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        className="w-full max-w-5xl aspect-video rounded-[40px] overflow-hidden border border-white/5 shadow-2xl shadow-black/50 bg-black/20 backdrop-blur-sm"
+      >
+        <iframe
+          className="w-full h-full"
+          src="https://www.youtube.com/embed/ZUqOaM6BDPU?autoplay=0&controls=1&rel=0&modestbranding=1"
+          title="Dr. Benjamin Amaral - Inovação e Tecnologia"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </motion.div>
+    </div>
+  </section>
+);
+
+const CTA = () => (
+  <section className="py-32 md:py-48 px-6 bg-primary relative overflow-hidden">
+    {/* Noise Texture Overlay */}
+    <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay z-20" style={{ backgroundImage: 'url("https://grainy-gradients.vercel.app/noise.svg")' }} />
+    
+    {/* Concentric Glows */}
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(197,160,89,0.05)_0%,transparent_70%)] -z-10 pointer-events-none" />
+
+    <div className="max-w-4xl mx-auto text-center relative z-10">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+        className="space-y-12"
+      >
+        <h2 className="text-4xl md:text-7xl lg:text-8xl font-light tracking-tighter text-primary-foreground leading-[0.9] uppercase">
+          Projete seu <br /> <span className="font-medium text-accent italic font-serif">melhor sorriso.</span>
+        </h2>
+        
+        <p className="text-sm md:text-lg text-primary-foreground/40 uppercase tracking-[0.4em] font-bold max-w-2xl mx-auto leading-relaxed">
+          Agende sua avaliação e descubra a odontologia de alta performance.
+        </p>
+
+        <div className="pt-8 flex justify-center">
+          <Button 
+            className="bg-accent text-primary hover:bg-accent/90 rounded-full px-8 md:px-16 py-6 md:py-8 text-[10px] md:text-sm uppercase tracking-[0.25em] md:tracking-[0.4em] h-auto font-bold shadow-2xl shadow-accent/20 transition-all duration-500 hover:scale-[1.05] active:scale-[0.98] w-full max-w-[280px] sm:max-w-none sm:w-auto"
+            onClick={() => window.open('https://wa.me/5512996544010', '_blank')}
+          >
+            Iniciar Transformação
+          </Button>
+        </div>
+      </motion.div>
+    </div>
+  </section>
+);
 
 const Footer = () => (
   <footer className="relative py-24 md:py-32 px-6 bg-background/80 backdrop-blur-md border-t border-border/40 overflow-hidden">
@@ -489,9 +554,8 @@ const Footer = () => (
         <div className="md:col-span-3 flex flex-col items-center md:items-end gap-10">
           <h4 className="text-[10px] md:text-xs uppercase tracking-[0.6em] font-bold text-accent">Presença Digital</h4>
           <div className="flex gap-10">
-            <a href="#" className="text-foreground/40 hover:text-accent transition-all hover:scale-110"><Instagram className="w-5 h-5" /></a>
-            <a href="#" className="text-foreground/40 hover:text-accent transition-all hover:scale-110"><Facebook className="w-5 h-5" /></a>
-            <a href="#" className="text-foreground/40 hover:text-accent transition-all hover:scale-110"><Linkedin className="w-5 h-5" /></a>
+            <a href="https://www.instagram.com/dr.benjaminamaral/" target="_blank" rel="noopener noreferrer" className="text-foreground/40 hover:text-accent transition-all hover:scale-110"><Instagram className="w-5 h-5" /></a>
+            <a href="https://www.youtube.com/@dr.benjaminamaral8838" target="_blank" rel="noopener noreferrer" className="text-foreground/40 hover:text-accent transition-all hover:scale-110"><Youtube className="w-5 h-5" /></a>
           </div>
         </div>
       </div>
@@ -509,24 +573,33 @@ const Footer = () => (
   </footer>
 );
 
+const SectionDivider = ({ maxWidth = "max-w-4xl", opacity = "via-accent/30" }: { maxWidth?: string, opacity?: string }) => (
+  <div className="w-full flex justify-center bg-primary">
+    <motion.div 
+      initial={{ width: 0, opacity: 0 }}
+      whileInView={{ width: "100%", opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 1.5, ease: "circOut" }}
+      className={`${maxWidth} h-[1px] bg-gradient-to-r from-transparent ${opacity} to-transparent`} 
+    />
+  </div>
+);
+
 export default function App() {
   return (
     <div className="selection:bg-accent selection:text-accent-foreground">
       <Navbar />
       <main>
         <Hero />
-        <div className="w-full flex justify-center bg-primary">
-          <motion.div 
-            initial={{ width: 0, opacity: 0 }}
-            whileInView={{ width: "100%", opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.5, ease: "circOut" }}
-            className="max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-accent/30 to-transparent" 
-          />
-        </div>
+        <SectionDivider />
         <About />
         <Services />
+        <SectionDivider maxWidth="max-w-3xl" opacity="via-accent/25" />
         <Testimonials />
+        <SectionDivider maxWidth="max-w-2xl" opacity="via-accent/20" />
+        <VideoHighlight />
+        <SectionDivider maxWidth="max-w-2xl" opacity="via-accent/20" />
+        <CTA />
       </main>
       <Footer />
     </div>
