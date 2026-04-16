@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Mrs+Saint+Delafield&display=swap');
+@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Montserrat", sans-serif;
+  --font-signature: "Mrs Saint Delafield", cursive;
+
+  --color-background: #f5f2ed;
+  --color-foreground: #1A2426;
+
+  --color-card: #ffffff;
+  --color-card-foreground: #1A2426;
+
+  --color-popover: #ffffff;
+  --color-popover-foreground: #1A2426;
+
+  --color-primary: #1A2426;
+  --color-primary-foreground: #f5f2ed;
+
+  --color-secondary: #c5a059;
+  --color-secondary-foreground: #1A2426;
+
+  --color-muted: #e5e2dd;
+  --color-muted-foreground: #4a5d65;
+
+  --color-accent: #c5a059;
+  --color-accent-foreground: #1a2e35;
+
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #f8fafc;
+
+  --color-border: #d5d2cd;
+  --color-input: #d5d2cd;
+  --color-ring: #1A2426;
+
+  --radius-lg: 0.5rem;
+  --radius-md: calc(0.5rem - 2px);
+  --radius-sm: calc(0.5rem - 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-tight;
+  }
+}
