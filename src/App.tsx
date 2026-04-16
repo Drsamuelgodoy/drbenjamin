@@ -95,29 +95,95 @@ const Navbar = () => {
 };
 
 const Hero = () => (
-  <section className="relative min-h-[90vh] md:min-h-screen flex flex-col items-center justify-center pt-24 pb-12 px-6 text-center overflow-hidden">
+  <section className="relative min-h-screen flex flex-col items-center justify-center pt-24 pb-12 px-6 text-center overflow-hidden bg-primary">
+    {/* Noise Texture Overlay */}
+    <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay z-20" style={{ backgroundImage: 'url("https://grainy-gradients.vercel.app/noise.svg")' }} />
+    
+    {/* Radial Glows */}
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] bg-[radial-gradient(circle_at_center,rgba(197,160,89,0.08)_0%,transparent_70%)] -z-10 pointer-events-none" />
+    <div className="absolute top-0 left-1/4 w-[1000px] h-[1000px] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.02)_0%,transparent_60%)] -z-10 pointer-events-none blur-3xl" />
+
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      className="z-10 w-full max-w-4xl"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1.5 }}
+      className="z-10 w-full max-w-5xl flex flex-col items-center"
     >
-      <Logo className="mb-6 md:mb-10 h-24 md:h-40" />
-      <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-light mb-6 uppercase tracking-tight leading-[1.1]">
-        Cuidado, Precisão <br className="hidden sm:block" /> e Confiança
-      </h1>
-      <p className="text-base md:text-xl font-normal text-foreground/70 mb-10 md:text-lg max-w-2xl mx-auto px-4">
-        Dr. Benjamin Amaral — Implantes e Estética Oral de Alta Previsibilidade
-      </p>
-      <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none w-full sm:w-auto px-12 py-6 text-xs uppercase tracking-[0.3em] h-auto">
-        Agende sua Consulta
-      </Button>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.98 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <Logo className="mb-8 md:mb-12 h-20 md:h-32 opacity-40 hover:opacity-100 transition-opacity duration-700" />
+      </motion.div>
+
+      <div className="space-y-4 md:space-y-6 mb-12 flex flex-col items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.2 }}
+        >
+          <h2 className="text-xl md:text-2xl font-serif italic text-accent tracking-[0.2em] mb-4">
+            Dr. Benjamin Amaral
+          </h2>
+          
+          <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-[8.5rem] font-light uppercase tracking-tighter leading-[0.85] text-primary-foreground mb-6">
+            A Arte da <br /> <span className="italic font-serif text-accent contrast-125">Reabilitação</span>
+          </h1>
+
+          <div className="flex flex-col items-center gap-2">
+            <span className="text-[10px] md:text-xs uppercase tracking-[0.5em] text-accent font-bold opacity-60">
+              Implantodontia & Estética Oral
+            </span>
+            <span className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-primary-foreground/30">
+              Taubaté • São Paulo
+            </span>
+          </div>
+        </motion.div>
+      </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.6 }}
+        className="flex flex-col sm:flex-row items-center gap-6"
+      >
+        <Button className="bg-accent text-primary hover:bg-accent/90 rounded-none px-16 py-8 text-[11px] uppercase tracking-[0.4em] h-auto font-bold shadow-2xl shadow-accent/20 transition-all hover:scale-105 active:scale-95 group">
+          <span className="relative z-10 flex items-center gap-2">
+            Agende sua Consulta
+            <motion.span
+              animate={{ x: [0, 5, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5 }}
+              className="inline-block"
+            >
+              →
+            </motion.span>
+          </span>
+        </Button>
+        <a 
+          href="#sobre" 
+          className="text-[10px] uppercase tracking-[0.4em] text-primary-foreground/40 hover:text-accent transition-colors font-bold px-4 py-2"
+        >
+          Conheça a clínica
+        </a>
+      </motion.div>
     </motion.div>
     
-    {/* Background decorative elements */}
-    <div className="absolute inset-0 -z-10 flex items-center justify-center opacity-[0.02] md:opacity-[0.03]">
-      {/* Decorative elements removed to keep focus on the main logo */}
-    </div>
+    {/* Floating Scroll Indicator */}
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 1.5, duration: 1 }}
+      className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 hidden md:flex"
+    >
+      <div className="w-[1px] h-24 bg-gradient-to-b from-transparent via-accent/30 to-transparent relative overflow-hidden">
+        <motion.div 
+          animate={{ y: [0, 96] }}
+          transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
+          className="w-full h-1/4 bg-accent absolute top-0"
+        />
+      </div>
+    </motion.div>
   </section>
 );
 
