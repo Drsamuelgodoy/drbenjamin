@@ -136,7 +136,7 @@ const Hero = () => (
           </h2>
           
           <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-[8rem] font-light uppercase tracking-tighter leading-[1.05] text-primary-foreground mb-8">
-            Reabilitação <span className="font-medium text-accent">Oral de Excelência</span>
+            Reabilitação Oral de<span className="font-medium text-accent">Excelência</span>
           </h1>
 
           <div className="flex flex-col items-center">
