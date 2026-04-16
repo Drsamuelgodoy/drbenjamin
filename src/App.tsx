@@ -12,12 +12,14 @@ import { Phone, MapPin, Instagram, Facebook, Linkedin, Menu, X, Star, CheckCircl
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
+import logo from "./ba.png";
+import doctorPhoto from "./benja.jpg";
 
 const Logo = ({ className = "" }: { className?: string }) => (
   <div className={`flex items-center justify-center ${className}`}>
     <img 
-      src="/ba.png" 
-      alt="Dr. Benjamin Amaral Logo" 
+      src={logo} 
+      alt="Dr. Benjamin Amaral - Logotipo" 
       className="h-full w-auto object-contain"
       referrerPolicy="no-referrer"
     />
@@ -51,11 +53,13 @@ const Navbar = () => {
         {/* Mobile Menu Trigger */}
         <div className="md:hidden">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="text-primary h-10 w-10">
-                <Menu className="w-6 h-6" />
-              </Button>
-            </SheetTrigger>
+            <SheetTrigger
+              render={
+                <Button variant="ghost" size="icon" className="text-primary h-10 w-10">
+                  <Menu className="w-6 h-6" />
+                </Button>
+              }
+            />
             <SheetContent side="right" className="w-full bg-background border-l-0 p-0 flex flex-col">
               <div className="p-6 flex justify-between items-center border-b border-border/40">
                 <Logo className="scale-75 origin-left" />
@@ -73,7 +77,7 @@ const Navbar = () => {
                   </a>
                 ))}
                 <Button 
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none w-full py-6 text-xs uppercase tracking-[0.3em] h-auto mt-4"
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none w-full py-6 text-xs uppercase tracking-[0.3em] h-auto mt-4 whitespace-normal"
                   onClick={() => setIsOpen(false)}
                 >
                   Agende sua Consulta
@@ -130,7 +134,7 @@ const About = () => (
         className="relative aspect-[4/5] md:aspect-[4/5] overflow-hidden bg-muted order-2 md:order-1"
       >
         <img
-          src="/benja.jpg"
+          src={doctorPhoto}
           alt="Dr. Benjamin Amaral"
           className="object-cover w-full h-full contrast-110"
           referrerPolicy="no-referrer"
@@ -176,21 +180,21 @@ const About = () => (
 const Services = () => {
   const services = [
     {
-      title: "Implantes Dentários",
-      description: "Tecnologia de ponta e cirurgia guiada para reposição de dentes com máxima segurança e conforto.",
-      tag: "Reabilitação",
+      title: "Implantes de Alta Precisão",
+      description: "Especialista em implantes com foco em previsibilidade e segurança. Utilizamos as melhores tecnologias para garantir um sorriso funcional e natural, com foco no bem-estar do paciente.",
+      tag: "Tecnologia SIN e Conforto",
       icon: "01"
     },
     {
-      title: "Lentes de Contato",
-      description: "Lâminas ultrafinas de porcelana que transformam a estética do sorriso com preservação da estrutura dental.",
-      tag: "Estética",
+      title: "Odontologia Digital",
+      description: "Pioneirismo no Vale do Paraíba em Cirurgia Guiada Virtual. Realizamos o planejamento completo do seu tratamento em ambiente digital, permitindo procedimentos mais rápidos e sem cortes desnecessários.",
+      tag: "Planejamento 3D e Cirurgia Guiada",
       icon: "02"
     },
     {
-      title: "Reabilitação Complexa",
-      description: "Planejamento digital completo para casos que exigem integração entre função mastigatória e harmonia facial.",
-      tag: "Funcionalidade",
+      title: "Reabilitação Oral",
+      description: "Tratamentos complexos que devolvem a função mastigatória e a harmonia do sorriso. Uma abordagem completa que une tecnologia de ponta e cuidado humanizado.",
+      tag: "Saúde e Estética Funcional",
       icon: "03"
     }
   ];
@@ -336,10 +340,12 @@ const Testimonials = () => {
               className="flex flex-col md:flex-row gap-8 md:gap-16 items-start md:items-center"
             >
               <div className="relative shrink-0">
-                <Avatar className="w-24 h-24 md:w-32 md:h-32 rounded-full border-2 border-accent/20 bg-accent/10 flex items-center justify-center">
-                  <span className="text-xl md:text-3xl font-bold tracking-tighter text-accent">
-                    {t.author.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2)}
-                  </span>
+                <Avatar className="w-24 h-24 md:w-32 md:h-32 rounded-full border-2 border-accent/20 bg-accent/10">
+                  <AvatarFallback className="bg-transparent">
+                    <span className="text-xl md:text-3xl font-bold tracking-tighter text-accent">
+                      {t.author.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2)}
+                    </span>
+                  </AvatarFallback>
                 </Avatar>
                 <div className="absolute -bottom-1 -right-1 bg-accent p-2 rounded-full shadow-lg">
                   <CheckCircle className="w-4 h-4 text-primary" />
@@ -386,7 +392,7 @@ const Testimonials = () => {
         >
           <Button 
             variant="outline" 
-            className="border-accent/30 text-accent hover:bg-accent hover:text-primary rounded-none w-full sm:w-auto px-8 sm:px-12 py-6 text-[10px] sm:text-xs uppercase tracking-[0.3em] h-auto text-center"
+            className="border-accent/30 text-accent hover:bg-accent hover:text-primary rounded-none w-full sm:w-auto px-4 sm:px-12 py-6 text-[10px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.3em] h-auto whitespace-normal leading-relaxed text-center"
             onClick={() => window.open('https://share.google/HiiONyrJ2gxcNlyf4', '_blank')}
           >
             Ver todas as avaliações no Google
