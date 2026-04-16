@@ -12,13 +12,11 @@ import { Phone, MapPin, Instagram, Facebook, Linkedin, Menu, X, Star, CheckCircl
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
-import logo from "./ba.png";
-import doctorPhoto from "./benja.jpg";
 
 const Logo = ({ className = "" }: { className?: string }) => (
   <div className={`flex items-center justify-center ${className}`}>
     <img 
-      src={logo} 
+      src="/ba.png" 
       alt="Dr. Benjamin Amaral - Logotipo" 
       className="h-full w-auto object-contain"
       referrerPolicy="no-referrer"
@@ -134,7 +132,7 @@ const About = () => (
         className="relative aspect-[4/5] md:aspect-[4/5] overflow-hidden bg-muted order-2 md:order-1"
       >
         <img
-          src={doctorPhoto}
+          src="/benja.jpg"
           alt="Dr. Benjamin Amaral"
           className="object-cover w-full h-full contrast-110"
           referrerPolicy="no-referrer"
