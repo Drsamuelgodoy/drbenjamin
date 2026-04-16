@@ -34,16 +34,16 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/40">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 h-16 md:h-20 flex items-center justify-between">
-        <Logo className="h-10 md:h-12 origin-left" />
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/20">
+      <div className="max-w-7xl mx-auto px-6 h-12 md:h-14 flex items-center justify-between">
+        <Logo className="h-6 md:h-8 origin-left opacity-90" />
         
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8 text-xs uppercase tracking-[0.2em] font-medium">
+        <div className="hidden md:flex items-center gap-8 text-[11px] uppercase tracking-[0.15em] font-semibold">
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href} className="hover:text-accent transition-colors">{link.label}</a>
+            <a key={link.href} href={link.href} className="hover:text-accent transition-colors opacity-80 hover:opacity-100">{link.label}</a>
           ))}
-          <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-none px-8 uppercase tracking-widest text-[10px]">
+          <Button variant="outline" className="border-primary/20 text-primary hover:bg-primary hover:text-primary-foreground rounded-full px-6 py-1 h-9 tracking-widest text-[10px] transition-all duration-300">
             Agende sua Consulta
           </Button>
         </div>
@@ -100,8 +100,7 @@ const Hero = () => (
     <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay z-20" style={{ backgroundImage: 'url("https://grainy-gradients.vercel.app/noise.svg")' }} />
     
     {/* Radial Glows */}
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] bg-[radial-gradient(circle_at_center,rgba(197,160,89,0.08)_0%,transparent_70%)] -z-10 pointer-events-none" />
-    <div className="absolute top-0 left-1/4 w-[1000px] h-[1000px] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.02)_0%,transparent_60%)] -z-10 pointer-events-none blur-3xl" />
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(197,160,89,0.03)_0%,transparent_60%)] -z-10 pointer-events-none" />
 
     <motion.div
       initial={{ opacity: 0 }}
@@ -110,33 +109,31 @@ const Hero = () => (
       className="z-10 w-full max-w-5xl flex flex-col items-center"
     >
       <motion.div
-        initial={{ opacity: 0, scale: 0.98 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 0.8, y: 0 }}
+        transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
       >
-        <Logo className="mb-8 md:mb-12 h-20 md:h-32 opacity-40 hover:opacity-100 transition-opacity duration-700" />
+        <Logo className="mb-6 md:mb-8 h-12 md:h-20" />
       </motion.div>
 
-      <div className="space-y-4 md:space-y-6 mb-12 flex flex-col items-center">
+      <div className="mb-12 flex flex-col items-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
+          className="text-center"
         >
-          <h2 className="text-xl md:text-2xl font-serif italic text-accent tracking-[0.2em] mb-4">
+          <h2 className="text-base md:text-lg uppercase tracking-[0.4em] text-accent font-semibold mb-6 opacity-80">
             Dr. Benjamin Amaral
           </h2>
           
-          <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-[8.5rem] font-light uppercase tracking-tighter leading-[0.85] text-primary-foreground mb-6">
-            A Arte da <br /> <span className="italic font-serif text-accent contrast-125">Reabilitação</span>
+          <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-[8rem] font-light uppercase tracking-tighter leading-[1.05] text-primary-foreground mb-8">
+            Reabilitação <span className="font-medium text-accent">Oral de Excelência</span>
           </h1>
 
-          <div className="flex flex-col items-center gap-2">
-            <span className="text-[10px] md:text-xs uppercase tracking-[0.5em] text-accent font-bold opacity-60">
-              Implantodontia & Estética Oral
-            </span>
-            <span className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-primary-foreground/30">
-              Taubaté • São Paulo
+          <div className="flex flex-col items-center">
+            <span className="text-[10px] md:text-xs uppercase tracking-[0.6em] text-primary-foreground/40 font-bold">
+              Implantodontia & Estética de Alta Performance
             </span>
           </div>
         </motion.div>
@@ -146,25 +143,17 @@ const Hero = () => (
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.6 }}
-        className="flex flex-col sm:flex-row items-center gap-6"
+        className="flex flex-col sm:flex-row items-center gap-8"
       >
-        <Button className="bg-accent text-primary hover:bg-accent/90 rounded-none px-16 py-8 text-[11px] uppercase tracking-[0.4em] h-auto font-bold shadow-2xl shadow-accent/20 transition-all hover:scale-105 active:scale-95 group">
-          <span className="relative z-10 flex items-center gap-2">
-            Agende sua Consulta
-            <motion.span
-              animate={{ x: [0, 5, 0] }}
-              transition={{ repeat: Infinity, duration: 1.5 }}
-              className="inline-block"
-            >
-              →
-            </motion.span>
-          </span>
+        <Button className="bg-accent text-primary hover:bg-accent/90 rounded-full px-12 py-6 text-[11px] uppercase tracking-[0.3em] h-auto font-bold shadow-xl shadow-accent/10 transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]">
+          Agende sua Consulta
         </Button>
         <a 
           href="#sobre" 
-          className="text-[10px] uppercase tracking-[0.4em] text-primary-foreground/40 hover:text-accent transition-colors font-bold px-4 py-2"
+          className="text-[10px] uppercase tracking-[0.4em] text-primary-foreground/30 hover:text-accent transition-all duration-300 font-bold group flex flex-col items-center"
         >
-          Conheça a clínica
+          Conheça o Studio
+          <motion.div className="h-[1px] w-0 bg-accent group-hover:w-full transition-all duration-500 mt-1" />
         </a>
       </motion.div>
     </motion.div>
@@ -172,17 +161,11 @@ const Hero = () => (
     {/* Floating Scroll Indicator */}
     <motion.div 
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 1.5, duration: 1 }}
-      className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 hidden md:flex"
+      animate={{ opacity: 0.15 }}
+      transition={{ delay: 2, duration: 1 }}
+      className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center hidden md:flex"
     >
-      <div className="w-[1px] h-24 bg-gradient-to-b from-transparent via-accent/30 to-transparent relative overflow-hidden">
-        <motion.div 
-          animate={{ y: [0, 96] }}
-          transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
-          className="w-full h-1/4 bg-accent absolute top-0"
-        />
-      </div>
+      <div className="w-[1px] h-12 bg-gradient-to-b from-transparent via-accent to-transparent" />
     </motion.div>
   </section>
 );
@@ -468,40 +451,58 @@ const Testimonials = () => {
 };
 
 const Footer = () => (
-  <footer className="py-16 md:py-20 px-6 border-t border-border/40">
-    <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
-      <div className="flex flex-col items-center md:items-start text-center md:text-left">
-        <Logo className="mb-6 md:mb-8" />
-        <p className="text-[10px] text-muted-foreground max-w-xs leading-relaxed uppercase tracking-widest">
-          Excelência em Odontologia Estética e Reabilitação Oral de Alta Performance.
-        </p>
+  <footer className="relative py-24 md:py-32 px-6 bg-background/80 backdrop-blur-md border-t border-border/40 overflow-hidden">
+    {/* Noise Texture Overlay */}
+    <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay z-20" style={{ backgroundImage: 'url("https://grainy-gradients.vercel.app/noise.svg")' }} />
+    
+    {/* Radial Glow */}
+    <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-[radial-gradient(circle_at_center,rgba(197,160,89,0.05)_0%,transparent_70%)] -z-10 pointer-events-none blur-3xl" />
+
+    <div className="max-w-7xl mx-auto z-10 relative">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8 items-start mb-20">
+        <div className="md:col-span-5 flex flex-col items-center md:items-start text-center md:text-left space-y-8">
+          <Logo className="h-16 md:h-20 opacity-80" />
+          <p className="text-[11px] text-foreground/60 max-w-sm leading-loose uppercase tracking-[0.4em] font-light">
+            Excelência em Odontologia Estética e Reabilitação Oral de Alta Performance em Taubaté.
+          </p>
+        </div>
+        
+        <div className="md:col-span-4 space-y-10 text-center md:text-left">
+          <h4 className="text-[10px] md:text-xs uppercase tracking-[0.6em] font-bold text-accent">Localização & Contato</h4>
+          <div className="space-y-8">
+            <div className="flex flex-col items-center md:items-start gap-4">
+              <span className="text-foreground/40 uppercase tracking-[0.2em] text-[9px]">Endereço</span>
+              <p className="text-sm md:text-base font-light text-foreground/80 leading-relaxed italic font-serif">
+                Square Offices & Mall — Sl 4A Térreo<br />
+                Av. Charles Schnneider, 1236 — Taubaté, SP
+              </p>
+            </div>
+            <div className="flex flex-col items-center md:items-start gap-4">
+              <span className="text-foreground/40 uppercase tracking-[0.2em] text-[9px]">Telefone</span>
+              <p className="text-xl md:text-2xl font-light text-foreground tracking-widest">
+                +55 (12) 99654-4010
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div className="md:col-span-3 flex flex-col items-center md:items-end gap-10">
+          <h4 className="text-[10px] md:text-xs uppercase tracking-[0.6em] font-bold text-accent">Presença Digital</h4>
+          <div className="flex gap-10">
+            <a href="#" className="text-foreground/40 hover:text-accent transition-all hover:scale-110"><Instagram className="w-5 h-5" /></a>
+            <a href="#" className="text-foreground/40 hover:text-accent transition-all hover:scale-110"><Facebook className="w-5 h-5" /></a>
+            <a href="#" className="text-foreground/40 hover:text-accent transition-all hover:scale-110"><Linkedin className="w-5 h-5" /></a>
+          </div>
+        </div>
       </div>
       
-      <div className="space-y-6 text-center md:text-left">
-        <h4 className="text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold mb-6 md:mb-8">Contato</h4>
-        <div className="flex flex-col md:flex-row items-center md:items-start gap-3 md:gap-4 text-sm font-light text-muted-foreground">
-          <MapPin className="w-4 h-4 text-accent shrink-0" />
-          <span>
-            Square Offices & Mall<br />
-            Edifício Square - Av. Charles Schnneider, 1236<br />
-            Sala 4A - Térreo - Taubaté - SP, 12040-000
-          </span>
+      <div className="pt-12 border-t border-border flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="text-[9px] md:text-[10px] uppercase tracking-[0.4em] text-foreground/30 text-center md:text-left">
+          &copy; {new Date().getFullYear()} Dr. Benjamin Amaral. Todos os direitos reservados.
         </div>
-        <div className="flex flex-col md:flex-row items-center md:items-start gap-3 md:gap-4 text-sm font-light text-muted-foreground">
-          <Phone className="w-4 h-4 text-accent shrink-0" />
-          <span>+55 (12) 99654-4010</span>
-        </div>
-      </div>
-      
-      <div className="flex flex-col items-center md:items-end gap-6 md:gap-8">
-        <h4 className="text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold">Siga-nos</h4>
-        <div className="flex gap-6">
-          <a href="#" className="text-muted-foreground hover:text-accent transition-colors"><Instagram className="w-5 h-5" /></a>
-          <a href="#" className="text-muted-foreground hover:text-accent transition-colors"><Facebook className="w-5 h-5" /></a>
-          <a href="#" className="text-muted-foreground hover:text-accent transition-colors"><Linkedin className="w-5 h-5" /></a>
-        </div>
-        <div className="mt-4 md:mt-auto text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-muted-foreground opacity-50 text-center md:text-right">
-          &copy; {new Date().getFullYear()} Dr. Benjamin Amaral. <br className="md:hidden" /> Todos os direitos reservados.
+        <div className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-foreground/30 flex gap-6">
+          <a href="#" className="hover:text-accent transition-colors">Política de Privacidade</a>
+          <a href="#" className="hover:text-accent transition-colors">Termos de Uso</a>
         </div>
       </div>
     </div>
@@ -514,6 +515,15 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
+        <div className="w-full flex justify-center bg-primary">
+          <motion.div 
+            initial={{ width: 0, opacity: 0 }}
+            whileInView={{ width: "100%", opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5, ease: "circOut" }}
+            className="max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-accent/30 to-transparent" 
+          />
+        </div>
         <About />
         <Services />
         <Testimonials />
