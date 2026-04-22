@@ -8,10 +8,21 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
-import { Phone, MapPin, Instagram, Youtube, Menu, X, Star, CheckCircle, MessageCircle } from "lucide-react";
+import { Phone, MapPin, Instagram, Youtube, Facebook, Menu, X, Star, CheckCircle, MessageCircle, Play } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
+
+const WhatsAppIcon = ({ className = "" }: { className?: string }) => (
+  <svg 
+    viewBox="0 0 24 24" 
+    className={className}
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.438 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .004 5.408 0 12.044c0 2.123.554 4.197 1.606 6.023L0 24l6.132-1.61a11.787 11.787 0 005.918 1.599h.005c6.637 0 12.046-5.409 12.05-12.046a11.83 11.83 0 00-3.538-8.52z" />
+  </svg>
+);
 
 const Logo = ({ className = "" }: { className?: string }) => (
   <div className={`flex items-center justify-center ${className}`}>
@@ -31,6 +42,7 @@ const Navbar = () => {
     { href: "#sobre", label: "Sobre" },
     { href: "#servicos", label: "Serviços" },
     { href: "#depoimentos", label: "Depoimentos" },
+    { href: "#institucional", label: "Institucional" },
   ];
 
   return (
@@ -86,12 +98,18 @@ const Navbar = () => {
                   Agende sua Consulta
                 </Button>
               </div>
-              <div className="p-10 border-t border-border/40 flex justify-center gap-8">
+              <div className="p-10 border-t border-border/40 flex justify-center gap-6">
                 <a href="https://www.instagram.com/dr.benjaminamaral/" target="_blank" rel="noopener noreferrer">
                   <Instagram className="w-5 h-5 text-muted-foreground hover:text-accent transition-colors" />
                 </a>
+                <a href="https://www.facebook.com/benjaminamaralodontologia" target="_blank" rel="noopener noreferrer">
+                  <Facebook className="w-5 h-5 text-muted-foreground hover:text-accent transition-colors" />
+                </a>
                 <a href="https://www.youtube.com/@dr.benjaminamaral8838" target="_blank" rel="noopener noreferrer">
                   <Youtube className="w-5 h-5 text-muted-foreground hover:text-accent transition-colors" />
+                </a>
+                <a href="https://wa.me/5512996544010" target="_blank" rel="noopener noreferrer">
+                  <WhatsAppIcon className="w-5 h-5 text-muted-foreground hover:text-accent transition-colors" />
                 </a>
               </div>
             </SheetContent>
@@ -209,7 +227,7 @@ const About = () => (
       >
         <span className="text-accent uppercase tracking-[0.3em] text-[10px] md:text-xs font-semibold mb-4 block">O Especialista</span>
         <h2 className="text-3xl md:text-5xl font-light mb-6 md:mb-8">Dr. Benjamin Amaral</h2>
-        <div className="space-y-4 md:space-y-6 text-primary-foreground/80 leading-relaxed font-normal text-base md:text-lg">
+        <div className="space-y-4 md:space-y-6 text-primary-foreground/80 leading-relaxed font-normal text-base md:text-lg text-justify">
           <p>
             Com mais de uma década de dedicação exclusiva à reabilitação oral, o Dr. Benjamin Amaral consolidou-se como uma referência em procedimentos de alta complexidade.
           </p>
@@ -305,7 +323,7 @@ const Services = () => {
                   
                   <Separator className="mb-6 bg-border/40" />
                   
-                  <p className="text-muted-foreground font-normal leading-relaxed text-base">
+                  <p className="text-muted-foreground font-normal leading-relaxed text-base text-justify">
                     {service.description}
                   </p>
                 </CardContent>
@@ -436,13 +454,22 @@ const Testimonials = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="mt-32 md:mt-48 flex justify-center px-4"
+          className="mt-32 md:mt-48 flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-8 px-4"
         >
           <Button 
-            className="bg-accent text-primary hover:bg-accent/90 rounded-full px-12 py-7 text-[10px] md:text-xs uppercase tracking-[0.4em] h-auto font-bold shadow-2xl shadow-accent/10 transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
+            className="bg-accent text-primary hover:bg-accent/90 rounded-full px-10 py-7 text-[10px] md:text-xs uppercase tracking-[0.4em] h-auto font-bold shadow-2xl shadow-accent/10 transition-all duration-500 hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto"
             onClick={() => window.open('https://share.google/HiiONyrJ2gxcNlyf4', '_blank')}
           >
-            Ver todas as experiências
+            Avaliações no Google
+          </Button>
+
+          <Button 
+            variant="outline"
+            className="border-accent/30 text-accent/60 hover:bg-accent hover:text-primary hover:border-transparent rounded-full px-10 py-7 text-[10px] md:text-xs uppercase tracking-[0.4em] h-auto font-bold transition-all duration-500 hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto group"
+            onClick={() => window.open('https://www.youtube.com/@dr.benjaminamaral8838/videos', '_blank')}
+          >
+            <Play className="w-3 h-3 mr-3 fill-accent transition-all group-hover:fill-primary" />
+            Relatos em Vídeo
           </Button>
         </motion.div>
       </div>
@@ -451,12 +478,12 @@ const Testimonials = () => {
 };
 
 const VideoHighlight = () => (
-  <section className="pt-24 md:py-32 px-6 bg-primary overflow-hidden relative">
+  <section id="institucional" className="pt-24 md:py-32 px-6 bg-primary overflow-hidden relative">
     <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay z-20" style={{ backgroundImage: 'url("https://grainy-gradients.vercel.app/noise.svg")' }} />
     <div className="max-w-7xl mx-auto relative z-10 flex flex-col items-center">
       <div className="text-center mb-16 max-w-2xl">
-        <h2 className="text-accent uppercase tracking-[0.5em] text-[9px] md:text-[10px] font-bold mb-6 opacity-80">Cinematografia</h2>
-        <h3 className="text-3xl md:text-5xl font-light tracking-tight text-primary-foreground leading-[1.1]">Inovação em <span className="italic font-serif text-accent">cada movimento.</span></h3>
+        <h2 className="text-accent uppercase tracking-[0.5em] text-[9px] md:text-[10px] font-bold mb-6 opacity-80">Institucional</h2>
+        <h3 className="text-3xl md:text-5xl font-light tracking-tight text-primary-foreground leading-[1.1]">Inovação em <span className="italic font-serif text-accent">cada detalhe.</span></h3>
       </div>
       
       <motion.div 
@@ -527,7 +554,7 @@ const Footer = () => (
       <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8 items-start mb-20">
         <div className="md:col-span-5 flex flex-col items-center md:items-start text-center md:text-left space-y-8">
           <Logo className="h-16 md:h-20 opacity-80" />
-          <p className="text-[11px] text-foreground/60 max-w-sm leading-loose uppercase tracking-[0.4em] font-light">
+          <p className="text-[11px] text-foreground/60 max-w-sm leading-loose uppercase tracking-[0.4em] font-light text-justify">
             Excelência em Odontologia Estética e Reabilitação Oral de Alta Performance em Taubaté.
           </p>
         </div>
@@ -537,7 +564,7 @@ const Footer = () => (
           <div className="space-y-8">
             <div className="flex flex-col items-center md:items-start gap-4">
               <span className="text-foreground/40 uppercase tracking-[0.2em] text-[9px]">Endereço</span>
-              <p className="text-sm md:text-base font-light text-foreground/80 leading-relaxed italic font-serif">
+              <p className="text-sm md:text-base font-light text-foreground/80 leading-relaxed italic font-serif text-justify">
                 Square Offices & Mall — Sl 4A Térreo<br />
                 Av. Charles Schnneider, 1236 — Taubaté, SP
               </p>
@@ -553,9 +580,11 @@ const Footer = () => (
         
         <div className="md:col-span-3 flex flex-col items-center md:items-end gap-10">
           <h4 className="text-[10px] md:text-xs uppercase tracking-[0.6em] font-bold text-accent">Presença Digital</h4>
-          <div className="flex gap-10">
+          <div className="flex gap-8 md:gap-10">
             <a href="https://www.instagram.com/dr.benjaminamaral/" target="_blank" rel="noopener noreferrer" className="text-foreground/40 hover:text-accent transition-all hover:scale-110"><Instagram className="w-5 h-5" /></a>
+            <a href="https://www.facebook.com/benjaminamaralodontologia" target="_blank" rel="noopener noreferrer" className="text-foreground/40 hover:text-accent transition-all hover:scale-110"><Facebook className="w-5 h-5" /></a>
             <a href="https://www.youtube.com/@dr.benjaminamaral8838" target="_blank" rel="noopener noreferrer" className="text-foreground/40 hover:text-accent transition-all hover:scale-110"><Youtube className="w-5 h-5" /></a>
+            <a href="https://wa.me/5512996544010" target="_blank" rel="noopener noreferrer" className="text-foreground/40 hover:text-accent transition-all hover:scale-110"><WhatsAppIcon className="w-5 h-5" /></a>
           </div>
         </div>
       </div>
@@ -599,13 +628,21 @@ const WhatsAppFloatingButton = () => (
       className="group relative flex items-center justify-center w-14 h-14 md:w-16 md:h-16"
       aria-label="Agendar via WhatsApp"
     >
-      <div className="absolute inset-0 bg-accent rounded-full shadow-2xl shadow-accent/20 transition-all duration-500 group-hover:shadow-accent/40" />
-      <div className="absolute inset-0 bg-white/20 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500 opacity-0 group-hover:opacity-20" />
-      <MessageCircle className="relative z-10 w-7 h-7 md:w-8 md:h-8 text-primary transition-transform duration-500 group-hover:scale-110" />
+      {/* Subtle Brand Background */}
+      <div className="absolute inset-0 bg-accent rounded-full shadow-2xl shadow-accent/20 transition-all duration-500 group-hover:shadow-[#25D366]/30" />
+      
+      {/* Pulse Effect */}
+      <div className="absolute inset-0 bg-[#25D366] rounded-full animate-ping opacity-10 group-hover:opacity-20 pointer-events-none" />
+      
+      {/* Inner White Ring for Focus */}
+      <div className="absolute inset-[2px] border border-white/10 rounded-full" />
+
+      {/* Official WhatsApp Silhouette SVG */}
+      <WhatsAppIcon className="relative z-10 w-7 h-7 md:w-8 md:h-8 fill-primary transition-transform duration-500 group-hover:scale-110" />
       
       {/* Label for Desktop */}
       <span className="absolute right-full mr-4 px-4 py-2 bg-background/80 backdrop-blur-xl border border-white/5 rounded-full text-[9px] md:text-[10px] uppercase tracking-[0.3em] font-bold text-accent whitespace-nowrap opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-500 hidden md:block">
-        Falar com Especialista
+        Falar no WhatsApp
       </span>
     </motion.button>
   </motion.div>
