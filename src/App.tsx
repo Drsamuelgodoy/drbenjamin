@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
-import { Phone, MapPin, Instagram, Youtube, Menu, X, Star, CheckCircle } from "lucide-react";
+import { Phone, MapPin, Instagram, Youtube, Menu, X, Star, CheckCircle, MessageCircle } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
@@ -136,7 +136,7 @@ const Hero = () => (
           </h2>
           
           <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-[8rem] font-light uppercase tracking-tighter leading-[1.05] text-primary-foreground mb-8">
-            Reabilitação Oral<span className="font-medium text-accent"> de Excelência</span>
+            Reabilitação <span className="font-medium text-accent">Oral de Excelência</span>
           </h1>
 
           <div className="flex flex-col items-center">
@@ -585,6 +585,32 @@ const SectionDivider = ({ maxWidth = "max-w-4xl", opacity = "via-accent/30" }: {
   </div>
 );
 
+const WhatsAppFloatingButton = () => (
+  <motion.div
+    initial={{ opacity: 0, scale: 0.8, y: 20 }}
+    animate={{ opacity: 1, scale: 1, y: 0 }}
+    transition={{ delay: 2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+    className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[60]"
+  >
+    <motion.button
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      onClick={() => window.open('https://wa.me/5512996544010', '_blank')}
+      className="group relative flex items-center justify-center w-14 h-14 md:w-16 md:h-16"
+      aria-label="Agendar via WhatsApp"
+    >
+      <div className="absolute inset-0 bg-accent rounded-full shadow-2xl shadow-accent/20 transition-all duration-500 group-hover:shadow-accent/40" />
+      <div className="absolute inset-0 bg-white/20 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500 opacity-0 group-hover:opacity-20" />
+      <MessageCircle className="relative z-10 w-7 h-7 md:w-8 md:h-8 text-primary transition-transform duration-500 group-hover:scale-110" />
+      
+      {/* Label for Desktop */}
+      <span className="absolute right-full mr-4 px-4 py-2 bg-background/80 backdrop-blur-xl border border-white/5 rounded-full text-[9px] md:text-[10px] uppercase tracking-[0.3em] font-bold text-accent whitespace-nowrap opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-500 hidden md:block">
+        Falar com Especialista
+      </span>
+    </motion.button>
+  </motion.div>
+);
+
 export default function App() {
   return (
     <div className="selection:bg-accent selection:text-accent-foreground">
@@ -602,6 +628,7 @@ export default function App() {
         <CTA />
       </main>
       <Footer />
+      <WhatsAppFloatingButton />
     </div>
   );
 }
