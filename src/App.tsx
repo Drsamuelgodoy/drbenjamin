@@ -229,23 +229,26 @@ const About = () => (
         <h2 className="text-3xl md:text-5xl font-light mb-6 md:mb-8">Dr. Benjamin Amaral</h2>
         <div className="space-y-4 md:space-y-6 text-primary-foreground/80 leading-relaxed font-normal text-base md:text-lg text-justify">
           <p>
-            Com mais de uma década de dedicação exclusiva à reabilitação oral, o Dr. Benjamin Amaral consolidou-se como uma referência em procedimentos de alta complexidade.
+            Dr. Benjamin Amaral é especializado em reabilitações orais completas, multiespecialidade e de alta complexidade. Implantodontista com quase duas décadas de experiência clínica, atua com visão 360° da odontologia, integrando especialidades em um planejamento único e preciso.
           </p>
           <p>
-            Sua formação internacional e o pioneirismo em técnicas de cirurgia guiada permitem resultados de extrema precisão, minimizando o desconforto e maximizando a estética funcional.
+            Sua atenção aos detalhes levou ao domínio das principais causas de falhas em tratamentos convencionais, desenvolvendo protocolos mais efetivos e menos invasivos, com menos etapas, menor desconforto e recuperação mais rápida — frequentemente evitando enxertos. 
+          </p>
+          <p>
+            Por meio da escultura manual, reconstrói a anatomia dental de forma individualizada, reduzindo desgastes e respeitando a função e a estética natural de cada paciente.
           </p>
           <p className="hidden sm:block">
-            Cada sorriso é tratado como uma obra única, onde a ciência da odontologia encontra a arte da estética, sempre pautado pela ética e pelo cuidado humano.
+            Todo o planejamento é realizado pelo Dr. Benjamin, garantindo coerência entre diagnóstico e execução. A condução do paciente segue um fluxo estruturado, com uma equipe treinada responsável pelas etapas iniciais de preparo, e tratamentos iniciais. Recebe pacientes de todo o Brasil e do exterior.
           </p>
         </div>
-        <div className="mt-8 md:mt-12 grid grid-cols-2 gap-6 md:gap-8">
+        <div className="mt-8 md:mt-12 grid grid-cols-2 gap-6 md:gap-8 text-center sm:text-left">
           <div>
-            <span className="text-2xl md:text-3xl font-serif block mb-1">12+</span>
-            <span className="text-[9px] md:text-[10px] uppercase tracking-widest opacity-60">Anos de Experiência</span>
+            <span className="text-4xl md:text-3xl font-serif block mb-1">12+</span>
+            <span className="text-[10px] md:text-[11px] uppercase tracking-widest opacity-60">Anos de Experiência</span>
           </div>
           <div>
-            <span className="text-2xl md:text-3xl font-serif block mb-1">5k+</span>
-            <span className="text-[9px] md:text-[10px] uppercase tracking-widest opacity-60">Sorrisos Transformados</span>
+            <span className="text-4xl md:text-3xl font-serif block mb-1">5k+</span>
+            <span className="text-[10px] md:text-[11px] uppercase tracking-widest opacity-60">Sorrisos Transformados</span>
           </div>
         </div>
       </motion.div>
