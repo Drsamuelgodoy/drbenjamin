@@ -24,10 +24,10 @@ const WhatsAppIcon = ({ className = "" }: { className?: string }) => (
   </svg>
 );
 
-const Logo = ({ className = "" }: { className?: string }) => (
+const Logo = ({ className = "", white = false }: { className?: string; white?: boolean }) => (
   <div className={`flex items-center justify-center ${className}`}>
     <img 
-      src="/ba.png" 
+      src={white ? "/ba-branco.png" : "/ba.png"} 
       alt="Dr. Benjamin Amaral - Logotipo" 
       className="h-full w-auto object-contain"
       referrerPolicy="no-referrer"
@@ -139,7 +139,7 @@ const Hero = () => (
         animate={{ opacity: 0.8, y: 0 }}
         transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
       >
-        <Logo className="mb-6 md:mb-8 h-12 md:h-20" />
+        <Logo className="mb-6 md:mb-8 h-12 md:h-20" white />
       </motion.div>
 
       <div className="mb-12 flex flex-col items-center">
@@ -149,7 +149,7 @@ const Hero = () => (
           transition={{ duration: 1, delay: 0.2 }}
           className="text-center"
         >
-          <h2 className="text-base md:text-lg uppercase tracking-[0.4em] text-accent font-semibold mb-6 opacity-80">
+          <h2 className="text-base md:text-lg uppercase tracking-[0.4em] text-primary-foreground font-semibold mb-6 opacity-80">
             Dr. Benjamin Amaral
           </h2>
           
@@ -528,7 +528,7 @@ const CTA = () => (
           Projete seu <br /> <span className="font-medium text-accent italic font-serif">melhor sorriso.</span>
         </h2>
         
-        <p className="text-sm md:text-lg text-primary-foreground/40 uppercase tracking-[0.4em] font-bold max-w-2xl mx-auto leading-relaxed">
+        <p className="text-sm md:text-lg text-primary-foreground/40 tracking-[0.1em] font-bold max-w-2xl mx-auto leading-relaxed text-center">
           Agende sua avaliação e descubra a odontologia de alta performance.
         </p>
 
@@ -557,7 +557,7 @@ const Footer = () => (
       <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8 items-start mb-20">
         <div className="md:col-span-5 flex flex-col items-center md:items-start text-center md:text-left space-y-8">
           <Logo className="h-16 md:h-20 opacity-80" />
-          <p className="text-[11px] text-foreground/60 max-w-sm leading-loose uppercase tracking-[0.4em] font-light text-justify">
+          <p className="text-[11px] text-foreground/60 max-w-sm leading-loose tracking-[0.1em] font-medium text-center md:text-left mx-auto md:mx-0">
             Excelência em Odontologia Estética e Reabilitação Oral de Alta Performance em Taubaté.
           </p>
         </div>
