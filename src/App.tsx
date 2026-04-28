@@ -121,7 +121,7 @@ const Navbar = () => {
 };
 
 const Hero = () => (
-  <section className="relative min-h-screen flex flex-col items-center justify-center pt-24 pb-12 px-6 text-center overflow-hidden bg-primary">
+  <section className="relative min-h-screen flex flex-col items-center justify-center pt-20 pb-10 px-6 text-center overflow-hidden bg-primary">
     {/* Noise Texture Overlay */}
     <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay z-20" style={{ backgroundImage: 'url("https://grainy-gradients.vercel.app/noise.svg")' }} />
     
@@ -200,7 +200,7 @@ const Hero = () => (
 );
 
 const About = () => (
-  <section id="sobre" className="py-20 md:py-32 px-6 bg-primary text-primary-foreground overflow-hidden">
+  <section id="sobre" className="py-12 md:py-20 px-6 bg-primary text-primary-foreground overflow-hidden">
     <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-center">
       <motion.div
         initial={{ opacity: 0, scale: 1.05 }}
@@ -243,11 +243,11 @@ const About = () => (
         </div>
         <div className="mt-8 md:mt-12 grid grid-cols-2 gap-6 md:gap-8 text-center sm:text-left">
           <div>
-            <span className="text-4xl md:text-3xl font-serif block mb-1">12+</span>
+            <span className="text-4xl md:text-3xl font-sans font-medium block mb-1">12+</span>
             <span className="text-[10px] md:text-[11px] uppercase tracking-widest opacity-60">Anos de Experiência</span>
           </div>
           <div>
-            <span className="text-4xl md:text-3xl font-serif block mb-1">5k+</span>
+            <span className="text-4xl md:text-3xl font-sans font-medium block mb-1">5.000+</span>
             <span className="text-[10px] md:text-[11px] uppercase tracking-widest opacity-60">Sorrisos Transformados</span>
           </div>
         </div>
@@ -279,9 +279,9 @@ const Services = () => {
   ];
 
   return (
-    <section id="servicos" className="py-20 md:py-32 px-6 bg-background">
+    <section id="servicos" className="py-16 md:py-24 px-6 bg-background">
       <div className="max-w-7xl mx-auto">
-        <div className="max-w-3xl mb-16 md:mb-24">
+        <div className="max-w-3xl mb-12 md:mb-16">
           <motion.span 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -359,7 +359,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <section id="depoimentos" className="relative py-24 md:py-40 px-6 bg-primary text-primary-foreground overflow-hidden">
+    <section id="depoimentos" className="relative py-16 md:py-28 px-6 bg-primary text-primary-foreground overflow-hidden">
       {/* Noise Texture Overlay */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay z-20" style={{ backgroundImage: 'url("https://grainy-gradients.vercel.app/noise.svg")' }} />
       
@@ -367,7 +367,7 @@ const Testimonials = () => {
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,rgba(197,160,89,0.03)_0%,transparent_70%)] -z-10 pointer-events-none blur-3xl" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="max-w-3xl mb-24 md:mb-32">
+        <div className="max-w-3xl mb-12 md:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -412,7 +412,7 @@ const Testimonials = () => {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 gap-24 md:gap-40">
+        <div className="grid grid-cols-1 gap-16 md:gap-24">
           {testimonials.map((t, index) => (
             <motion.div
               key={index}
@@ -457,7 +457,7 @@ const Testimonials = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="mt-32 md:mt-48 flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-8 px-4"
+          className="mt-16 md:mt-24 flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-8 px-4"
         >
           <Button 
             className="bg-accent text-primary hover:bg-accent/90 rounded-full px-10 py-7 text-[10px] md:text-xs uppercase tracking-[0.4em] h-auto font-bold shadow-2xl shadow-accent/10 transition-all duration-500 hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto"
@@ -481,10 +481,10 @@ const Testimonials = () => {
 };
 
 const VideoHighlight = () => (
-  <section id="institucional" className="pt-24 md:py-32 px-6 bg-primary overflow-hidden relative">
+  <section id="institucional" className="py-16 md:py-24 px-6 bg-primary overflow-hidden relative">
     <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay z-20" style={{ backgroundImage: 'url("https://grainy-gradients.vercel.app/noise.svg")' }} />
     <div className="max-w-7xl mx-auto relative z-10 flex flex-col items-center">
-      <div className="text-center mb-16 max-w-2xl">
+      <div className="text-center mb-10 max-w-2xl">
         <h2 className="text-accent uppercase tracking-[0.5em] text-[9px] md:text-[10px] font-bold mb-6 opacity-80">Institucional</h2>
         <h3 className="text-3xl md:text-5xl font-light tracking-tight text-primary-foreground leading-[1.1]">Inovação em <span className="italic font-serif text-accent">cada detalhe.</span></h3>
       </div>
@@ -509,7 +509,7 @@ const VideoHighlight = () => (
 );
 
 const CTA = () => (
-  <section className="py-32 md:py-48 px-6 bg-primary relative overflow-hidden">
+  <section className="py-20 md:py-28 px-6 bg-primary relative overflow-hidden">
     {/* Noise Texture Overlay */}
     <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay z-20" style={{ backgroundImage: 'url("https://grainy-gradients.vercel.app/noise.svg")' }} />
     
@@ -546,7 +546,7 @@ const CTA = () => (
 );
 
 const Footer = () => (
-  <footer className="relative py-24 md:py-32 px-6 bg-background/80 backdrop-blur-md border-t border-border/40 overflow-hidden">
+  <footer className="relative py-16 md:py-20 px-6 bg-background/80 backdrop-blur-md border-t border-border/40 overflow-hidden">
     {/* Noise Texture Overlay */}
     <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay z-20" style={{ backgroundImage: 'url("https://grainy-gradients.vercel.app/noise.svg")' }} />
     
@@ -554,7 +554,7 @@ const Footer = () => (
     <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-[radial-gradient(circle_at_center,rgba(197,160,89,0.05)_0%,transparent_70%)] -z-10 pointer-events-none blur-3xl" />
 
     <div className="max-w-7xl mx-auto z-10 relative">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8 items-start mb-20">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8 items-start mb-12">
         <div className="md:col-span-5 flex flex-col items-center md:items-start text-center md:text-left space-y-8">
           <Logo className="h-16 md:h-20 opacity-80" />
           <p className="text-[11px] text-foreground/60 max-w-sm leading-loose tracking-[0.1em] font-medium text-center md:text-left mx-auto md:mx-0">
